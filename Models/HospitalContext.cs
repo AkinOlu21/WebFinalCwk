@@ -1,5 +1,7 @@
 
 
+using Microsoft.EntityFrameworkCore;
+
 namespace WebFinal.Models
 {
     public class HospitalContext : DbContext
