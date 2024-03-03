@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace WebFinal.Models
 {
     public class Appointment
@@ -7,6 +9,8 @@ namespace WebFinal.Models
         public int PatientId { get; set; }
         public int DoctorId { get; set; }
         public DateTime AppointmentDateTime { get; set; }
+
+         [JsonIgnore]
         public string? Status { get; set; }
     }
 }
