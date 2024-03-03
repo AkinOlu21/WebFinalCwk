@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\kenne\\OneDrive\\MASTERS SOFTWARE ENGINEERING\\Web application\\WebFinal\\WebFinal.csproj": {}
+    "C:\\Users\\kenne\\OneDrive\\MASTERS SOFTWARE ENGINEERING\\Web application\\WebFinal\\WebFinal.csproj": {}
   },
   "projects": {
-    "c:\\Users\\kenne\\OneDrive\\MASTERS SOFTWARE ENGINEERING\\Web application\\WebFinal\\WebFinal.csproj": {
+    "C:\\Users\\kenne\\OneDrive\\MASTERS SOFTWARE ENGINEERING\\Web application\\WebFinal\\WebFinal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\kenne\\OneDrive\\MASTERS SOFTWARE ENGINEERING\\Web application\\WebFinal\\WebFinal.csproj",
+        "projectUniqueName": "C:\\Users\\kenne\\OneDrive\\MASTERS SOFTWARE ENGINEERING\\Web application\\WebFinal\\WebFinal.csproj",
         "projectName": "WebFinal",
-        "projectPath": "c:\\Users\\kenne\\OneDrive\\MASTERS SOFTWARE ENGINEERING\\Web application\\WebFinal\\WebFinal.csproj",
+        "projectPath": "C:\\Users\\kenne\\OneDrive\\MASTERS SOFTWARE ENGINEERING\\Web application\\WebFinal\\WebFinal.csproj",
         "packagesPath": "C:\\Users\\kenne\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\kenne\\OneDrive\\MASTERS SOFTWARE ENGINEERING\\Web application\\WebFinal\\obj\\",
+        "outputPath": "C:\\Users\\kenne\\OneDrive\\MASTERS SOFTWARE ENGINEERING\\Web application\\WebFinal\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

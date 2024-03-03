@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fMGJmcjbcd9V45Ro99ZEzlpm7cNmMkGDo/Yag3Ctr+HZTZbe505mOcEP/2FcxASp3KS9HqWvhxucbxOiKRQECQ==",
+  "dgSpecHash": "jbAdSkwudmjreRPdUOS7gevWGc0gMi9NcOIdroHJMOIPloO5+VC8MAsk0Zr2yzLwVTCkjSdSqXLamvvuxXAajA==",
   "success": true,
-  "projectFilePath": "c:\\Users\\kenne\\OneDrive\\MASTERS SOFTWARE ENGINEERING\\Web application\\WebFinal\\WebFinal.csproj",
+  "projectFilePath": "C:\\Users\\kenne\\OneDrive\\MASTERS SOFTWARE ENGINEERING\\Web application\\WebFinal\\WebFinal.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kenne\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\kenne\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
