@@ -1,10 +1,12 @@
 
 
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace WebFinal.Models
 {
-    public class HospitalContext : DbContext
+    public class HospitalContext :  IdentityDbContext<IdentityUser>
     {
 
         public HospitalContext(DbContextOptions<HospitalContext> options)
@@ -15,7 +17,6 @@ namespace WebFinal.Models
 
     base.OnModelCreating(modelBuilder);
 }
-
 
         public DbSet<Doctor> Doctors { get; set; }
         public DbSet<MedicalRecord> MedicalRecords { get; set; }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kenne\\OneDrive\\MASTERS SOFTWARE ENGINEERING\\Web application\\WebFinal\\WebFinal.csproj": {}
+    "c:\\Users\\kenne\\OneDrive\\MASTERS SOFTWARE ENGINEERING\\Web application\\WebFinal\\WebFinal.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kenne\\OneDrive\\MASTERS SOFTWARE ENGINEERING\\Web application\\WebFinal\\WebFinal.csproj": {
+    "c:\\Users\\kenne\\OneDrive\\MASTERS SOFTWARE ENGINEERING\\Web application\\WebFinal\\WebFinal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kenne\\OneDrive\\MASTERS SOFTWARE ENGINEERING\\Web application\\WebFinal\\WebFinal.csproj",
+        "projectUniqueName": "c:\\Users\\kenne\\OneDrive\\MASTERS SOFTWARE ENGINEERING\\Web application\\WebFinal\\WebFinal.csproj",
         "projectName": "WebFinal",
-        "projectPath": "C:\\Users\\kenne\\OneDrive\\MASTERS SOFTWARE ENGINEERING\\Web application\\WebFinal\\WebFinal.csproj",
+        "projectPath": "c:\\Users\\kenne\\OneDrive\\MASTERS SOFTWARE ENGINEERING\\Web application\\WebFinal\\WebFinal.csproj",
         "packagesPath": "C:\\Users\\kenne\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kenne\\OneDrive\\MASTERS SOFTWARE ENGINEERING\\Web application\\WebFinal\\obj\\",
+        "outputPath": "c:\\Users\\kenne\\OneDrive\\MASTERS SOFTWARE ENGINEERING\\Web application\\WebFinal\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -50,6 +50,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.4.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[8.0.2, )"
