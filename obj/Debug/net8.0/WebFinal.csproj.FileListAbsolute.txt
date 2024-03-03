@@ -286,3 +286,4 @@ C:\Users\kenne\OneDrive\MASTERS SOFTWARE ENGINEERING\Web application\WebFinal\bi
 C:\Users\kenne\OneDrive\MASTERS SOFTWARE ENGINEERING\Web application\WebFinal\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
 C:\Users\kenne\OneDrive\MASTERS SOFTWARE ENGINEERING\Web application\WebFinal\bin\Debug\net8.0\MailKit.dll
 C:\Users\kenne\OneDrive\MASTERS SOFTWARE ENGINEERING\Web application\WebFinal\bin\Debug\net8.0\MimeKit.dll
+C:\Users\kenne\OneDrive\MASTERS SOFTWARE ENGINEERING\Web application\WebFinal\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
