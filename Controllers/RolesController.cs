@@ -41,6 +41,9 @@ namespace WebFinal.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateRole([FromBody] string roleName)
         {
+            try
+            {
+
             var role = new IdentityRole(roleName);
             var result = await _roleManager.CreateAsync(role);
 
@@ -49,7 +52,18 @@ namespace WebFinal.Controllers
                 return Ok("Role created successfully.");
             }
 
+        Console.WriteLine($"Error creating the role: {string.Join(", ", result.Errors)}");
+
             return BadRequest(result.Errors);
+            }
+            catch (Exception ex)
+    {
+        
+        Console.WriteLine($"Unexpected error: {ex}");
+        return StatusCode(500, "Internal Server Error");
+    }
+
+            
         }
 
         [HttpPut]
