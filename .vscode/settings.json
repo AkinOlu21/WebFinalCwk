@@ -1,0 +1,5 @@
+{
+    "appService.preDeployTask": "publish-release",
+    "appService.deploySubpath": "bin\\Release\\net8.0\\publish",
+    "appService.defaultWebAppToDeploy": "/subscriptions/2ec2e7df-834b-47a3-90cd-4faf85be6cfe/resourceGroups/WEB/providers/Microsoft.Web/sites/HospitalWeb"
+}
