@@ -8,11 +8,37 @@ namespace WebFinal.Controllers
     [ApiController]
     public class NurseController : ControllerBase
     {
-        private readonly HospitalContext _context;
+    private readonly HospitalContext _context;
 
-        public NurseController(HospitalContext context)
+    private readonly ILogger<NurseController> loggers;
+
+   
+
+    public IActionResult LoggerAction()
+    {
+        loggers.LogInformation("Logger was called.");
+        return Ok();
+    }
+
+ [HttpGet("errorproneaction")]
+    public IActionResult ErrorProneAction()
+    {
+        try
+        {
+            
+            throw new InvalidOperationException("This is an exception!");
+        }
+        catch (Exception ex)
+        {
+            loggers.LogError(ex, "An error occurred!!!");
+            return StatusCode(500, "Internal server error");
+        }
+    }
+
+        public NurseController(HospitalContext context, ILogger<NurseController> logger)
         {
             _context = context;
+            loggers = logger;
         }
 
         // GET: api/Nurse

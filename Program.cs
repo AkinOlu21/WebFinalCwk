@@ -1,9 +1,10 @@
 using System.Text;
-using IdentityPractice.Controllers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 using WebFinal.Controllers;
 using WebFinal.Models;
 
@@ -22,6 +23,7 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>()
 
 builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
 builder.Services.AddScoped<EmailService>();
+
 
     builder.Services.AddScoped<RolesController>();
 
@@ -42,6 +44,38 @@ builder.Services.AddScoped<EmailService>();
                         ValidAudience = builder.Configuration["Jwt:Issuer"],
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
                     };
+
+                     options.Events = new JwtBearerEvents
+                {
+                    OnAuthenticationFailed = context =>
+                    {
+                        
+                        return Task.CompletedTask;
+                    },
+                    OnChallenge = context =>
+                    {
+                        
+                        if (!context.Response.HasStarted)
+                        {
+                            context.Response.StatusCode = 401;
+                            context.Response.ContentType = "application/json";
+                            var result = JsonConvert.SerializeObject(new { error = "You are not authorized" });
+                            return context.Response.WriteAsync(result);
+                        }
+
+                        return Task.CompletedTask;
+                    },
+                    OnTokenValidated = context =>
+                    {
+                        
+                        return Task.CompletedTask;
+                    },
+                    OnMessageReceived = context =>
+                    {
+                        
+                        return Task.CompletedTask;
+                    },
+                };
                     });
 
 var app = builder.Build();
@@ -53,9 +87,23 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+
+
 app.MapControllers();
 
+app.UseExceptionHandler(a => a.Run(async context =>
+    {
+        var exception = context.Features.Get<IExceptionHandlerPathFeature>().Error;
+        var result = JsonConvert.SerializeObject(new { error = exception.Message });
+        context.Response.ContentType = "application/json";
+        await context.Response.WriteAsync(result);
+    }));
+
+
 app.UseHttpsRedirection();
+
+
+
 
 var summaries = new[]
 {

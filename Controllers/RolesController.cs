@@ -11,11 +11,35 @@ namespace WebFinal.Controllers
     {
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly UserManager<IdentityUser> _userManager;
+      private readonly ILogger<RolesController> loggers;
 
-        public RolesController(RoleManager<IdentityRole> roleManager, UserManager<IdentityUser> userManager)
+  
+    public IActionResult LoggerAction()
+    {
+        loggers.LogInformation("Logger was called.");
+        return Ok();
+    }
+
+ [HttpGet("errorproneaction")]
+    public IActionResult ErrorProneAction()
+    {
+        try
+        {
+            
+            throw new InvalidOperationException("This is an exception!");
+        }
+        catch (Exception ex)
+        {
+            loggers.LogError(ex, "An error occurred!!!");
+            return StatusCode(500, "Internal server error");
+        }
+    }
+
+        public RolesController(RoleManager<IdentityRole> roleManager, UserManager<IdentityUser> userManager, ILogger<RolesController> logger)
         {
             _roleManager = roleManager;
             _userManager = userManager;
+            loggers = logger;
         }
 
         [HttpGet]
@@ -63,6 +87,7 @@ namespace WebFinal.Controllers
         return StatusCode(500, "Internal Server Error");
     }
 
+            
             
         }
 
@@ -133,6 +158,8 @@ namespace WebFinal.Controllers
 
             return BadRequest(result.Errors);
         }
+
+
 
     }
 }

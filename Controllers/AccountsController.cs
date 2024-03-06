@@ -5,7 +5,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace IdentityPractice.Controllers
+namespace WebFinal.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -15,13 +15,36 @@ namespace IdentityPractice.Controllers
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly EmailService _emailService;
         private readonly IConfiguration _configuration;
+        private readonly ILogger<AccountController> loggers;
 
-        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, EmailService emailService, IConfiguration configuration)
+  
+    public IActionResult LoggerAction()
+    {
+        loggers.LogInformation("Logger was called.");
+        return Ok();
+    }
+
+ [HttpGet("errorproneaction")]
+    public IActionResult ErrorProneAction()
+    {
+        try
+        {
+            
+            throw new InvalidOperationException("This is an exception!");
+        }
+        catch (Exception ex)
+        {
+            loggers.LogError(ex, "An error occurred!!!");
+            return StatusCode(500, "Internal server error");
+        }
+    }
+        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, EmailService emailService, IConfiguration configuration, ILogger<AccountController> logger)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailService = emailService;
             _configuration = configuration;
+            loggers = logger;
         }
 
         [HttpPost("register")]
