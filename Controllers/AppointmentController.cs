@@ -9,35 +9,14 @@ namespace WebFinal.Controllers
     public class AppointmentController : ControllerBase
     {
         private readonly HospitalContext _context;
-         private readonly ILogger<AppointmentController> loggers;
 
     
-    
-        public IActionResult LoggerAction()
-    {
-        loggers.LogInformation("Logger was called.");
-        return Ok();
-    }
+   
 
- [HttpGet("errorproneaction")]
-    public IActionResult ErrorProneAction()
-    {
-        try
-        {
-            
-            throw new InvalidOperationException("This is an exception!");
-        }
-        catch (Exception ex)
-        {
-            loggers.LogError(ex, "An error occurred!!!");
-            return StatusCode(500, "Internal server error");
-        }
-    }
-
-        public AppointmentController(HospitalContext context, ILogger<AppointmentController> logger)
+        public AppointmentController(HospitalContext context)
         {
             _context = context;
-            loggers = logger;
+           
         }
 
         // GET: api/Appointment

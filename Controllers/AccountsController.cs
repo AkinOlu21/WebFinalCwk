@@ -15,36 +15,16 @@ namespace WebFinal.Controllers
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly EmailService _emailService;
         private readonly IConfiguration _configuration;
-        private readonly ILogger<AccountController> loggers;
 
   
-    public IActionResult LoggerAction()
-    {
-        loggers.LogInformation("Logger was called.");
-        return Ok();
-    }
-
- [HttpGet("errorproneaction")]
-    public IActionResult ErrorProneAction()
-    {
-        try
-        {
-            
-            throw new InvalidOperationException("This is an exception!");
-        }
-        catch (Exception ex)
-        {
-            loggers.LogError(ex, "An error occurred!!!");
-            return StatusCode(500, "Internal server error");
-        }
-    }
-        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, EmailService emailService, IConfiguration configuration, ILogger<AccountController> logger)
+ 
+        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, EmailService emailService, IConfiguration configuration)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailService = emailService;
             _configuration = configuration;
-            loggers = logger;
+            
         }
 
         [HttpPost("register")]

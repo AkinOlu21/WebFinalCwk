@@ -10,34 +10,12 @@ namespace WebFinal.Controllers
     {
         private readonly HospitalContext _context;
 
-        private readonly ILogger<DoctorController> loggers;
+      
 
-  
-    public IActionResult LoggerAction()
-    {
-        loggers.LogInformation("Logger was called.");
-        return Ok();
-    }
-
- [HttpGet("errorproneaction")]
-    public IActionResult ErrorProneAction()
-    {
-        try
-        {
-            
-            throw new InvalidOperationException("This is an exception!");
-        }
-        catch (Exception ex)
-        {
-            loggers.LogError(ex, "An error occurred!!!");
-            return StatusCode(500, "Internal server error");
-        }
-    }
-
-        public DoctorController(HospitalContext context, ILogger<DoctorController> logger)
+        public DoctorController(HospitalContext context)
         {
             _context = context;
-            loggers = logger;
+            
         }
 
         // GET: api/Doctor
